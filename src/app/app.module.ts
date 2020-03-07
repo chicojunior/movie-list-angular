@@ -6,8 +6,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { effects } from '@app-store/effects';
-import { reducers } from '@app-store/reducers';
+import { effects } from 'src/app/state/effects';
+import { reducers } from 'src/app/state/reducers';
 
 import { environment } from 'src/environments/environment';
 
@@ -35,6 +35,6 @@ const FEATURE_MODULES = [];
     ...NGRX_MODULES,
     ...FEATURE_MODULES ],
   providers: [],
-	bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule {}
