@@ -1,0 +1,13 @@
+mat-card {
+  width: 270px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.expandable {
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

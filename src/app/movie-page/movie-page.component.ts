@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { Movie } from '@app-common/model/movie.model';
 
 import { moviesSelector } from '../state/movie/movie.reducer';
-import { searchMovies } from '../state/movie/movie.actions';
+import { getAllMovies, searchMovies } from '../state/movie/movie.actions';
 
 @Component({
   selector: 'app-movie-page',
@@ -22,6 +22,7 @@ export class MoviePageComponent implements OnInit {
 
   ngOnInit() {
     this.movies$ = this.store.pipe(select(moviesSelector));
+    this.store.dispatch(getAllMovies());
   }
 
   searchMovies(evt) {

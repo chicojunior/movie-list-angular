@@ -1,0 +1,10 @@
+:host {
+  margin: 20% 5%;
+}
+
+:host ::ng-deep {
+  .mat-form-field-outline {
+    background-color: #fff;
+  }
+}
+

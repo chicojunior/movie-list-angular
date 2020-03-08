@@ -1,1 +1,9 @@
-<p>movie-item works!</p>
+<mat-card class="expandable">
+  <img mat-card-image src="assets/img/movie-covers/{{movie.key}}.jpg" alt="{{movie.name}} movie poster">
+  <mat-card-content>
+    <h1>{{movie.name}}</h1>
+    <p>
+      {{movie.description}}
+    </p>
+  </mat-card-content>
+</mat-card>
