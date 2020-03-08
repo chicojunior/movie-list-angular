@@ -6,8 +6,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MovieItemComponent } from './movie-item.component';
 
 @NgModule({
-	declarations: [ MovieItemComponent ],
-	imports: [ CommonModule, MatCardModule ],
-	exports: [ MovieItemComponent ]
+  declarations: [ MovieItemComponent ],
+  imports: [ CommonModule, MatCardModule ],
+  exports: [ MovieItemComponent ]
 })
 export class MovieItemModule {}
