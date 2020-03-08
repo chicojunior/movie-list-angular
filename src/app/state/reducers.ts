@@ -1,5 +1,11 @@
 import { ActionReducerMap } from '@ngrx/store';
 
-export interface AppState {}
+import * as fromMovie from './movie/movie.reducer';
 
-export const reducers: ActionReducerMap<AppState> = {};
+export interface AppState {
+  movies: fromMovie.MovieState;
+}
+
+export const reducers: ActionReducerMap<AppState> = {
+  movies: fromMovie.reducer
+};

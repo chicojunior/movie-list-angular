@@ -2,19 +2,19 @@ import { createAction, props } from '@ngrx/store';
 
 import { Movie } from '@app-common/model/movie.model';
 
-export enum CourseActionTypes {
-  GetAllMovies = '[Course] GetAllMovies',
-  GetAllMoviesSuccess = '[Course] GetAllMovies Success',
-  GetAllMoviesFailure = '[Course] GetAllMovies Failure',
-  SearchMovies = '[Course] SearchMovies',
-  SearchMoviesSuccess = '[Course] SearchMovies Success',
-  SearchMoviesFailure = '[Course] SearchMovies Failure'
+export enum MovieActionTypes {
+  GetAllMovies = '[Movie] GetAllMovies',
+  GetAllMoviesSuccess = '[Movie] GetAllMovies Success',
+  GetAllMoviesFailure = '[Movie] GetAllMovies Failure',
+  SearchMovies = '[Movie] SearchMovies',
+  SearchMoviesSuccess = '[Movie] SearchMovies Success',
+  SearchMoviesFailure = '[Movie] SearchMovies Failure'
 }
 
-export const getAllMovies = createAction(CourseActionTypes.GetAllMovies);
-export const getAllMoviesSuccess = createAction(CourseActionTypes.GetAllMoviesSuccess, props<{ payload: Movie[] }>());
-export const getAllMoviesFailure = createAction(CourseActionTypes.GetAllMoviesFailure, props<{ error: any }>());
+export const getAllMovies = createAction(MovieActionTypes.GetAllMovies);
+export const getAllMoviesSuccess = createAction(MovieActionTypes.GetAllMoviesSuccess, props<{ payload: Movie[] }>());
+export const getAllMoviesFailure = createAction(MovieActionTypes.GetAllMoviesFailure, props<{ error: any }>());
 
-export const searchMovies = createAction(CourseActionTypes.SearchMovies, props<{ query: string }>());
-export const searchMoviesSuccess = createAction(CourseActionTypes.SearchMoviesSuccess, props<{ payload: Movie[] }>());
-export const searchMoviesFailure = createAction(CourseActionTypes.SearchMoviesFailure, props<{ error: any }>());
+export const searchMovies = createAction(MovieActionTypes.SearchMovies, props<{ query: string }>());
+export const searchMoviesSuccess = createAction(MovieActionTypes.SearchMoviesSuccess, props<{ payload: Movie[] }>());
+export const searchMoviesFailure = createAction(MovieActionTypes.SearchMoviesFailure, props<{ error: any }>());

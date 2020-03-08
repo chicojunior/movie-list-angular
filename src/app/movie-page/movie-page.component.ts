@@ -1,25 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '@app-common/service/movie.service';
 import { Movie } from '@app-common/model/movie.model';
+import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { moviesSelector } from '../state/movie/movie.reducer';
+import { getAllMovies } from '../state/movie/movie.actions';
 
 @Component({
   selector: 'app-movie-page',
   templateUrl: './movie-page.component.html',
-  styleUrls: ['./movie-page.component.scss']
+  styleUrls: [ './movie-page.component.scss' ]
 })
 export class MoviePageComponent implements OnInit {
+  public movies$: Observable<Movie[]>;
 
-  movies: Movie[] = [];
-
-  constructor(private service: MovieService) { }
+  constructor(private store: Store<any>) {}
 
   ngOnInit() {
-    this.service
-      .getAllMovies()
-      .subscribe(res => {
-        this.movies = res;
-        console.log(this.movies);
-      });
+    this.store.dispatch(getAllMovies());
+    this.movies$ = this.store.pipe(select(moviesSelector));
   }
-
 }

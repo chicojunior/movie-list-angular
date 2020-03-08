@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
+import { MovieListModule } from '../movie-list/movie-list.module';
+
 import { MoviePageComponent } from './movie-page.component';
 
 @NgModule({
@@ -13,7 +15,8 @@ import { MoviePageComponent } from './movie-page.component';
     CommonModule,
     MatFormFieldModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MovieListModule
   ],
   exports: [ MoviePageComponent ]
 })
