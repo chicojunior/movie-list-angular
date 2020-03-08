@@ -11,9 +11,7 @@ import { Movie } from '@app-common/model/movie.model';
   providedIn: 'root'
 })
 export class MovieService {
-  protected moviesSubject: BehaviorSubject<Movie[]> = new BehaviorSubject([]);
 
-  public movies: Observable<Movie[]> = this.moviesSubject.asObservable();
   public mockUrl = 'assets/mocks/movie.mock.json';
 
   constructor(private http: HttpClient) {}
@@ -23,14 +21,12 @@ export class MovieService {
   }
 
   searchMovies(query: string): Observable<Movie[]> {
-    return this.http.get(this.mockUrl).pipe(map((data) => this.filterMovies(query, data as Movie[])));
+    return this.http.get(this.mockUrl).pipe(
+      map((data) => this.filterMovies(query, data as Movie[]))
+    );
   }
 
   filterMovies(query: string, movieList: Movie[]): Movie[] {
-    return movieList.filter((movie) => movie.name.includes(query));
-  }
-
-  setMovies(movies: Movie[]): void {
-    this.moviesSubject.next(movies);
+    return movieList.filter((movie) => movie.name.toLowerCase().includes(query));
   }
 }

@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from '@app-common/service/movie.service';
-import { Movie } from '@app-common/model/movie.model';
-import { Observable } from 'rxjs';
+
 import { Store, select } from '@ngrx/store';
+
+import { Observable } from 'rxjs';
+
+import { Movie } from '@app-common/model/movie.model';
+
 import { moviesSelector } from '../state/movie/movie.reducer';
-import { getAllMovies } from '../state/movie/movie.actions';
+import { searchMovies } from '../state/movie/movie.actions';
 
 @Component({
   selector: 'app-movie-page',
@@ -12,12 +15,20 @@ import { getAllMovies } from '../state/movie/movie.actions';
   styleUrls: [ './movie-page.component.scss' ]
 })
 export class MoviePageComponent implements OnInit {
+
   public movies$: Observable<Movie[]>;
 
   constructor(private store: Store<any>) {}
 
   ngOnInit() {
-    this.store.dispatch(getAllMovies());
     this.movies$ = this.store.pipe(select(moviesSelector));
+  }
+
+  searchMovies(evt) {
+    const input = evt.target.value;
+
+    if (input.length >= 3 || input === '') {
+      this.store.dispatch(searchMovies({ query: input }));
+    }
   }
 }
