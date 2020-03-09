@@ -4,4 +4,4 @@
 </mat-form-field>
 
 
-<app-movie-list [movies]="movies$ | async"></app-movie-list>
+<app-movie-list [movies]="movies$ | async" (selectedMovieFromList)="movieDetail($event)"></app-movie-list>

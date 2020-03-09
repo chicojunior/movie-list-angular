@@ -8,6 +8,7 @@ import { Movie } from '@app-common/model/movie.model';
 
 import { moviesSelector } from '../state/movie/movie.reducer';
 import { getAllMovies, searchMovies } from '../state/movie/movie.actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-page',
@@ -18,7 +19,7 @@ export class MoviePageComponent implements OnInit {
 
   public movies$: Observable<Movie[]>;
 
-  constructor(private store: Store<any>) {}
+  constructor(private store: Store<any>, private router: Router) {}
 
   ngOnInit() {
     this.movies$ = this.store.pipe(select(moviesSelector));
@@ -31,5 +32,10 @@ export class MoviePageComponent implements OnInit {
     if (input.length >= 3 || input === '') {
       this.store.dispatch(searchMovies({ query: input }));
     }
+  }
+
+  movieDetail(movieId: number) {
+    this.router.navigate(['movies', movieId]);
+    console.log(movieId);
   }
 }

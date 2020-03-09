@@ -1,4 +1,4 @@
-<mat-card class="expandable">
+<mat-card class="expandable" (click)="selectMovie(movie.id)">
   <img mat-card-image src="assets/img/movie-covers/{{movie.key}}.jpg" alt="{{movie.name}} movie poster">
   <mat-card-content>
     <h1>{{movie.name}}</h1>
