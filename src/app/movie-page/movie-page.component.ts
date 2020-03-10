@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 
 import { Movie } from '@app-common/model/movie.model';
 
-import { moviesSelector } from '../state/movie/movie.reducer';
+import { allMovies } from '../state/movie/movie.reducer';
 import { getAllMovies, searchMovies } from '../state/movie/movie.actions';
 import { Router } from '@angular/router';
 
@@ -22,7 +22,7 @@ export class MoviePageComponent implements OnInit {
   constructor(private store: Store<any>, private router: Router) {}
 
   ngOnInit() {
-    this.movies$ = this.store.pipe(select(moviesSelector));
+    this.movies$ = this.store.pipe(select(allMovies));
     this.store.dispatch(getAllMovies());
   }
 

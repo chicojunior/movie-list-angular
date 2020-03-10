@@ -36,6 +36,26 @@ export class MovieEffect {
     )
   );
 
+  getMovieById$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType<{ type: any, payload: number }>(MovieActions.MovieActionTypes.GetMovieById),
+      switchMap((action) =>
+        this.movieService.getMovieById(action.payload).pipe(
+          map((res) => ({
+            type: MovieActions.MovieActionTypes.GetMovieByIdSuccess,
+            payload: res
+          })),
+          catchError((err) =>
+            of({
+              type: MovieActions.MovieActionTypes.GetMovieByIdFailure,
+              payload: err
+            })
+          )
+        )
+      )
+    )
+  );
+
   searchMovies$ = createEffect(() =>
     this.actions$.pipe(
       ofType<{ type: string; query: string }>(MovieActions.MovieActionTypes.SearchMovies),
@@ -55,5 +75,4 @@ export class MovieEffect {
       )
     )
   );
-
 }

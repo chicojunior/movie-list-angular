@@ -10,7 +10,5 @@ export class Movie {
   length: string;
   img: string;
 
-  constructor() {
-
-  }
+  constructor() {}
 }
