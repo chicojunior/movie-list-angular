@@ -1,0 +1,31 @@
+:host {
+  height: fit-content;
+  width: 80%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+
+  .description,
+  .poster {
+    margin: 20px;
+  }
+
+  .description {
+    flex: 2;
+  }
+
+  .poster {
+    flex: 1;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column-reverse;
+  }
+}

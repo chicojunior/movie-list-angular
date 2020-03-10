@@ -1,13 +1,30 @@
 mat-card {
-  width: 270px;
-  margin: 20px;
-  cursor: pointer;
+	width: 176px;
+	margin: 20px;
+	cursor: pointer;
 }
 
 .expandable {
-  transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
 
-  &:hover {
-    transform: scale(1.1);
-  }
+	&:hover {
+		transform: scale(1.1);
+	}
+}
+
+.title {
+  color: #494C62;
+  margin: 0;
+}
+
+.genres {
+  color: #BABBC3;
+}
+
+.left {
+  flex: 2;
+}
+
+.right {
+  flex: 1;
 }
