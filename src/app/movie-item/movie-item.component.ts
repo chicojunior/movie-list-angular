@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Movie } from '@app-common/model/movie.model';
 
 @Component({
@@ -6,14 +6,10 @@ import { Movie } from '@app-common/model/movie.model';
   templateUrl: './movie-item.component.html',
   styleUrls: ['./movie-item.component.scss']
 })
-export class MovieItemComponent implements OnInit {
+export class MovieItemComponent {
 
   @Input() movie: Movie;
   @Output() movieSelected = new EventEmitter<number>();
-
-  constructor() { }
-
-  ngOnInit() {}
 
   selectMovie(movieId: number) {
     this.movieSelected.emit(movieId);

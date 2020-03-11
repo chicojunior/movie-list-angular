@@ -5,8 +5,10 @@
   <mat-card-content>
     <div class="wrapper">
       <div class="description">
-        <span>{{movie.description}}</span>
-        <span>{{movie.description}}</span>
+        <p>{{movie.description}}</p>
+        <p><span>Genres: </span> {{genres | titlecase}}</p>
+        <p><span>Duration: </span> {{ movie.length }}</p>
+        <p><span>Rate: </span> {{ movie.rate }}</p>
       </div>
       <div class="poster">
         <img src="assets/img/movie-covers/{{movie.key}}.jpg" alt="{{movie.name}} movie poster" />

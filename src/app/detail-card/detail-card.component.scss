@@ -19,13 +19,27 @@
   .poster {
     flex: 1;
     img {
-      width: 100%;
+      width: 80%;
     }
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  span {
+    font-weight: bold;
   }
 }
 
 @media (max-width: 768px) {
   .wrapper {
     flex-direction: column-reverse;
+
+    .poster {
+      img {
+        width: 100%;
+      }
+    }
   }
 }
